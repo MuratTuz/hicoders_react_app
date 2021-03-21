@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// user defined data object
+import data from './data';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App data={data} />
   </React.StrictMode>,
   document.getElementById('root')
 );
