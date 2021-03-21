@@ -26,10 +26,11 @@ function OneLine(props) {
 function List(props) {
   // create list elements
   const view = props.data.content.map((element, index) => {
+    index += 1; console.log(index);
     return (
-      <li key={index}>
+      <li key={index} >
         {element}
-      </li>
+      </li >
     )
   });
 
@@ -54,13 +55,10 @@ function List(props) {
  * @returns single page's view using above two components.
  */
 function App(props) {
-  const panel = props.data.map(element => {
-    if (element.content.length === 1)
-      return <OneLine data={element} />
-    else
-      return <List data={element} />
-  })
-  return panel;
+  return props.data.map((element, index) => {
+    return (element.content.length === 1) ?
+      <OneLine key={index} data={element} /> : <List key={index} data={element} />
+  });
 }
 
 export default App;
